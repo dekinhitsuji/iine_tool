@@ -6,6 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.utils import ChromeType
 import streamlit as st
 
 #タイトル
@@ -25,7 +26,8 @@ if button :
 
 
     # ブラウザを開く。
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    #driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.GOOGLE).install())
     # Googleの検索TOP画面を開く。
     driver.get("https://www.instagram.com/")
     time.sleep(3)
